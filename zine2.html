@@ -1,0 +1,74 @@
+
+<head>
+   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2096725/audio_classification.js"></script>
+   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2096725/onset.js"></script>
+   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2096725/nt-utils.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/plugin/wavesurfer.spectrogram.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/plugin/wavesurfer.regions.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tone@0.12.62/build/Tone.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/processing/p5.js-sound/lib/p5.sound.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dspjs@1.0.0/dsp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/0.12.4/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.1.7/dist/magentamusic.min.js"></script>
+
+</head>
+<body>
+
+
+<link rel="stylesheet" href="cssforzine2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+   <div id='info'>
+      <h2>Neural Beatbox (alpha)</h2>
+
+      <h5>Make some noise and record your voice! <br>
+         Deep Learning models will analyze and build a drum kit, then start generating drum patterns infinitely with your sound.</h5>
+
+      <p id="warning"> Chrome only</p>
+   </div>
+
+   <!--  RECORDING   -->
+   <div id="initialization">
+      <div class="progress">
+         <div class="indeterminate"></div>
+      </div>
+      Loading...
+   </div>
+
+   <button  id="record_button" disabled>1. Record</button> or Drag&Drop a sound file↓
+   <div class="progress" id="progressbar-record"  style="width:0%"></div>
+   <div id="ws-waveform"><div id="ws-waveform-text"></div></div>
+   <div id="ws-spectorogram"></div>
+
+
+   <!--  CLASSIFICATION    -->
+   <button  id="classify_button" disabled>2. Analyze</button>
+   <div class="progress" id="progressbar-analysis" style="display:none">
+      <div class="indeterminate"></div>
+   </div>
+
+   <div class="grid-container">
+      <div class="grid-item" id="ws-waveform-kit-0">Kick </div>
+      <div class="grid-item" id="ws-waveform-kit-1">Snare</div>
+      <div class="grid-item" id="ws-waveform-kit-2">Hi-hat closed</div>
+      <div class="grid-item" id="ws-waveform-kit-3">Hi-hat open</div>
+      <div class="grid-item" id="ws-waveform-kit-4">Tom low</div>
+      <div class="grid-item" id="ws-waveform-kit-5">Tom mid</div>
+      <div class="grid-item" id="ws-waveform-kit-6">Tom high</div>
+      <div class="grid-item" id="ws-waveform-kit-7">Clap</div>
+      <div class="grid-item" id="ws-waveform-kit-8">Rim</div>
+   </div>
+   <p>
+
+      <button id="play_button" disabled>3. Play!!</button>
+
+
+
+</body>
