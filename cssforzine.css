@@ -1,24 +1,21 @@
 @import "https://fonts.googleapis.com/css?family=MedievalSharp";
 html, body {
   background: black;
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   font-family: 'MedievalSharp', cursive;
 }
 
 h1 {
   color: #fff;
   font-size: 5vw;
-  letter-spacing: 6px;
+  letter-spacing: 0px;
 }
 
 .pad {
-  width: 100%;
+  width: 95%;
   display: flex;
   justify-content: stretch;
 }
@@ -44,7 +41,8 @@ h1 {
   cursor: pointer;
 }
 .box:active {
-  background-color: white;
+
+  background-color: black;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   -webkit-transform: rotate(360deg);
@@ -59,6 +57,31 @@ h1 {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
   transition: all .1s;
+}
+
+.textbox {
+  width: 50%;
+  font-size: 2vw;
+  color: white;
+  padding-top: 25px;
+}
+
+.textbox2 {
+  width: 5%;
+  font-size: 2vw;
+  color: white;
+  padding-top: 25px;
+}
+
+.textbox3 {
+  width: 45%;
+  font-size: 2vw;
+  color: white;
+  padding-top: 25px;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .pad-1, .pad-2, .pad-3, .pad-4, .pad-5, .pad-6, .pad-7, .pad-8, .pad-9, .pad-10, .pad-11, .pad-12, .pad-13, .pad-14, .pad-15, .pad-16, .pad-17, .pad-18 {
